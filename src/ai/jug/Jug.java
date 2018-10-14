@@ -7,7 +7,7 @@ import ai.BaseState;
 
 public final class Jug
 {
-	public static void main(final String[] args)
+	public static void open()
 	{
 		State.g = 4;
 		State.m = new int[] {3, 5, 10000};

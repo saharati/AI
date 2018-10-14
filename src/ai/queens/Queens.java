@@ -7,7 +7,7 @@ import ai.BaseState;
 
 public final class Queens
 {
-	public static void main(final String[] args)
+	public static void open()
 	{
 		final State start = new State();
 		BaseState result = Algorithms.breadthFirstSearch(start);

@@ -77,7 +77,7 @@ public final class State implements BaseState
 			sb.append("[");
 			for (int j = 0;j < SIZE;j++)
 			{
-				sb.append(board[i][j] ? " ♛ " : " _ ");
+				sb.append(board[i][j] ? " + " : " _ ");
 				if (j < SIZE - 1)
 					sb.append("|");
 			}

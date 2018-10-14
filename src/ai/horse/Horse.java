@@ -6,7 +6,7 @@ import ai.BaseState;
 
 public final class Horse
 {
-	public static void main(final String[] args)
+	public static void open()
 	{
 		final State start = new State();
 		BaseState result = backtrackingSearch(start);

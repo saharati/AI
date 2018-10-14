@@ -7,7 +7,7 @@ import ai.BaseState;
 
 public final class Puzzle
 {
-	public static void main(final String[] args)
+	public static void open()
 	{
 		final State start = new State(new int[][] {{5, 1, 3}, {4, 0, 6}, {7, 2, 8}});
 		BaseState result = Algorithms.breadthFirstSearch(start);

@@ -7,9 +7,9 @@ import ai.BaseState;
 
 public final class MC
 {
-	public static void main(final String[] args)
+	public static void open()
 	{
-		final State start = new State(0, 0, 4, 4, Location.RIGHT, null);
+		final State start = new State(0, 0, 3, 3, Location.RIGHT, null);
 		BaseState result = Algorithms.breadthFirstSearch(start);
 		if (result == null)
 		{
