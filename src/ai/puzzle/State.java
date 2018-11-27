@@ -35,6 +35,7 @@ public final class State implements BaseState
 				{
 					i0 = i;
 					j0 = j;
+					found = true;
 				}
 			}
 		}
@@ -74,26 +75,38 @@ public final class State implements BaseState
 	@Override
 	public int cost()
 	{
-		int cost = 0;
+		int f = 0;
+		BaseState parent = this.parent;
+		while (parent != null)
+		{
+			f++;
+			parent = parent.parent();
+		}
+		
+		int h = 0;
 		for (int i = 0;i < t.length;i++)
 		{
 			for (int j = 0;j < t.length;j++)
 			{
+				if (t[i][j] == 0)
+					continue;
+				
 				boolean found = false;
 				for (int x = 0;x < t.length && !found;x++)
 				{
 					for (int y = 0;y < t.length && !found;y++)
 					{
-						if (t[i][j] == GOAL[x][y])
+						if (t[i][j] != GOAL[x][y])
 						{
-							cost += Math.abs((i + j) - (x + y));
+							h++;
 							found = true;
 						}
 					}
 				}
 			}
 		}
-		return cost;
+		
+		return f + h;
 	}
 	
 	@Override
