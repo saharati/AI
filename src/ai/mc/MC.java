@@ -66,7 +66,7 @@ public final class MC
 	public MC()
 	{
 		resetVariables();
-			
+		
 		final JFrame frame = new JFrame("AI - Sahar Atias");
 		final JPanel topPanel = new JPanel(new BorderLayout());
 		topPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 0));

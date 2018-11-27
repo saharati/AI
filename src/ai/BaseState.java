@@ -8,7 +8,7 @@ public interface BaseState
 	
 	public Set<BaseState> expand();
 	
-	default int cost()
+	public default int cost()
 	{
 		throw new RuntimeException("A cost function is not implemenated for this problem.");
 	}

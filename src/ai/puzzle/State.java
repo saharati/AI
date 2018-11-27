@@ -67,8 +67,8 @@ public final class State implements BaseState
 	{
 		final Set<BaseState> states = new HashSet<>();
 		for (final Operation o : Operation.values())
-			if (o.getDomain().test(this))
-				states.add(o.getAction().apply(this));
+			if (o.test(this))
+				states.add(o.apply(this));
 		return states;
 	}
 	

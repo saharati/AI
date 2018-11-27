@@ -89,4 +89,21 @@ public final class Algorithms
 		}
 		return null;
 	}
+	
+	public static BaseState backtrackingSearch(final BaseState state, final IOperation[] operations)
+	{
+		if (state.isGoal())
+			return state;
+		
+		for (final IOperation o : operations)
+		{
+			if (o.test(state))
+			{
+				final BaseState goal = backtrackingSearch(o.apply(state), operations);
+				if (goal != null)
+					return goal;
+			}
+		}
+		return null;
+	}
 }

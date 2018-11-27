@@ -3,7 +3,10 @@ package ai.puzzle;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public enum Operation
+import ai.BaseState;
+import ai.IOperation;
+
+public enum Operation implements IOperation
 {
 	UP(s -> s.i0 > 0, s -> new State(s.i0 - 1, s.j0, s)),
 	DOWN(s -> s.i0 < s.t.length - 1, s -> new State(s.i0 + 1, s.j0, s)),
@@ -19,13 +22,15 @@ public enum Operation
 		_action = action;
 	}
 	
-	public Predicate<State> getDomain()
+	@Override
+	public boolean test(BaseState state)
 	{
-		return _domain;
+		return _domain.test((State) state);
 	}
 	
-	public Function<State, State> getAction()
+	@Override
+	public BaseState apply(BaseState state)
 	{
-		return _action;
+		return _action.apply((State) state);
 	}
 }

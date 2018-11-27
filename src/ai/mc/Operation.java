@@ -3,7 +3,10 @@ package ai.mc;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public enum Operation
+import ai.BaseState;
+import ai.IOperation;
+
+public enum Operation implements IOperation
 {
 	MML(s -> s.MR >= 2 && (s.MR - 2 >= s.CR || s.MR - 2 == 0) && s.ML + 2 >= s.CL && s.B == Location.RIGHT, s -> new State(s.CL, s.ML + 2, s.CR, s.MR - 2, Location.LEFT, s)),
 	CCL(s -> s.CR >= 2 && (s.CL + 2 <= s.ML || s.ML == 0) && s.B == Location.RIGHT, s -> new State(s.CL + 2, s.ML, s.CR - 2, s.MR, Location.LEFT, s)),
@@ -25,13 +28,15 @@ public enum Operation
 		_action = action;
 	}
 	
-	public Predicate<State> getDomain()
+	@Override
+	public boolean test(BaseState state)
 	{
-		return _domain;
+		return _domain.test((State) state);
 	}
 	
-	public Function<State, State> getAction()
+	@Override
+	public BaseState apply(BaseState state)
 	{
-		return _action;
+		return _action.apply((State) state);
 	}
 }
