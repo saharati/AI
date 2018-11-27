@@ -1,7 +1,7 @@
 package ai.queens;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import ai.BaseState;
@@ -38,7 +38,7 @@ public final class State implements BaseState
 	@Override
 	public Set<BaseState> expand()
 	{
-		final Set<BaseState> states = new HashSet<>();
+		final Set<BaseState> states = new LinkedHashSet<>();
 		for (int i = 0;i < SIZE;i++)
 		{
 			boolean rowEmpty = true;

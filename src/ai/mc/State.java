@@ -1,7 +1,7 @@
 package ai.mc;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import ai.BaseState;
@@ -35,7 +35,7 @@ public final class State implements BaseState
 	@Override
 	public Set<BaseState> expand()
 	{
-		final Set<BaseState> states = new HashSet<>();
+		final Set<BaseState> states = new LinkedHashSet<>();
 		for (final Operation o : Operation.values())
 			if (o.test(this))
 				states.add(o.apply(this));

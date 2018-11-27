@@ -79,7 +79,7 @@ public final class Puzzle
 		backgroundPanel.setPreferredSize(new Dimension(600, 600));
 		frame.add(backgroundPanel, BorderLayout.PAGE_END);
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setLocationRelativeTo(null);

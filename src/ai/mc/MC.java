@@ -88,7 +88,7 @@ public final class MC
 		backgroundPanel.setPreferredSize(new Dimension(800, 600));
 		frame.add(backgroundPanel, BorderLayout.PAGE_END);
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
