@@ -1,4 +1,4 @@
-package ui;
+package ai;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 
 import ai.horse.Horse;
 import ai.jug.Jug;
@@ -28,14 +27,12 @@ public final class Main
 	{
 		final JFrame frame = new JFrame("AI - Sahar Atias");
 		final JPanel contentPanel = new JPanel();
-		final Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
-		contentPanel.setBorder(padding);
+		contentPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		frame.setContentPane(contentPanel);
 		frame.setLayout(new BorderLayout());
 		
 		final JLabel selectGame = new JLabel("Choose a Problem");
-		final Font titleFont = new Font("Arial", Font.BOLD, 25);
-		selectGame.setFont(titleFont);
+		selectGame.setFont(new Font("Arial", Font.BOLD, 25));
 		selectGame.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.add(selectGame, BorderLayout.PAGE_START);
 		
@@ -44,7 +41,7 @@ public final class Main
 		buttonsPanel.add(Box.createVerticalStrut(10));
 		
 		final JButton mc = new JButton("Three Missionaries");
-		mc.addActionListener(e -> MC.open());
+		mc.addActionListener(e -> new MC());
 		mc.setAlignmentX(Component.CENTER_ALIGNMENT);
 		mc.setMaximumSize(new Dimension(Integer.MAX_VALUE, mc.getMinimumSize().height));
 		buttonsPanel.add(mc);
