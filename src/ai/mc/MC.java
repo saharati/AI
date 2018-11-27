@@ -39,7 +39,7 @@ public final class MC
 	private final Map<Point, Boolean> onBoat = new HashMap<>();
 	private final Point boat = new Point(360, 270);
 	private final JLabel title = new JLabel("Choose an Algorithm");
-	private final JPanel backgroundPanel = new JPanel()
+	private final JPanel backgroundPanel = new JPanel(null)
 	{
 		private static final long serialVersionUID = 1L;
 		
@@ -85,7 +85,6 @@ public final class MC
 		topPanel.add(actionPanel, BorderLayout.EAST);
 		frame.add(topPanel, BorderLayout.PAGE_START);
 		
-		backgroundPanel.setLayout(null);
 		backgroundPanel.setPreferredSize(new Dimension(800, 600));
 		frame.add(backgroundPanel, BorderLayout.PAGE_END);
 		

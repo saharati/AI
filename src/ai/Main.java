@@ -47,7 +47,7 @@ public final class Main
 		buttonsPanel.add(mc);
 		buttonsPanel.add(Box.createVerticalStrut(10));
 		final JButton puzzle = new JButton("Puzzle");
-		puzzle.addActionListener(e -> Puzzle.open());
+		puzzle.addActionListener(e -> new Puzzle());
 		puzzle.setAlignmentX(Component.CENTER_ALIGNMENT);
 		puzzle.setMaximumSize(new Dimension(Integer.MAX_VALUE, puzzle.getMinimumSize().height));
 		buttonsPanel.add(puzzle);
