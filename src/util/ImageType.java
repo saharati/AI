@@ -12,7 +12,8 @@ public enum ImageType
 	MC_BACKGROUND("background.jpg", false),
 	MC_HUMAN("human.png", false),
 	MC_ZOMBIE("zombie.png", false),
-	MC_BOAT("boat.png", true);
+	MC_BOAT("boat.png", true),
+	JUG_BACKGROUND("jugbackground.jpg", false);
 	
 	private ImageIcon _icon;
 	private ImageIcon _flippedIcon;

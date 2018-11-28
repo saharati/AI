@@ -59,7 +59,7 @@ public final class Main
 		buttonsPanel.add(horse);
 		buttonsPanel.add(Box.createVerticalStrut(10));
 		final JButton jugs = new JButton("Jugs");
-		jugs.addActionListener(e -> Jug.open());
+		jugs.addActionListener(e -> new Jug());
 		jugs.setAlignmentX(Component.CENTER_ALIGNMENT);
 		jugs.setMaximumSize(new Dimension(Integer.MAX_VALUE, jugs.getMinimumSize().height));
 		buttonsPanel.add(jugs);
