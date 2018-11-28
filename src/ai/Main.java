@@ -65,7 +65,7 @@ public final class Main
 		buttonsPanel.add(jugs);
 		buttonsPanel.add(Box.createVerticalStrut(10));
 		final JButton queens = new JButton("Queens");
-		queens.addActionListener(e -> Queens.open());
+		queens.addActionListener(e -> new Queens());
 		queens.setAlignmentX(Component.CENTER_ALIGNMENT);
 		queens.setMaximumSize(new Dimension(Integer.MAX_VALUE, queens.getMinimumSize().height));
 		buttonsPanel.add(queens);

@@ -243,7 +243,7 @@ public final class MC
 					
 					index++;
 					moveTask.cancel(false);
-					threadPool.schedule(() -> task(states), 3, TimeUnit.SECONDS);
+					threadPool.schedule(() -> task(states), 2, TimeUnit.SECONDS);
 				}
 				backgroundPanel.repaint();
 			}, ANIMATION_SPEED, ANIMATION_SPEED, TimeUnit.MILLISECONDS);
@@ -272,7 +272,7 @@ public final class MC
 					
 					index++;
 					moveTask.cancel(false);
-					threadPool.schedule(() -> task(states), 3, TimeUnit.SECONDS);
+					threadPool.schedule(() -> task(states), 2, TimeUnit.SECONDS);
 				}
 				backgroundPanel.repaint();
 			}, ANIMATION_SPEED, ANIMATION_SPEED, TimeUnit.MILLISECONDS);
