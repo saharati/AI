@@ -9,17 +9,17 @@ import javax.swing.ImageIcon;
 
 public enum ImageType
 {
-	MC_BACKGROUND("./images/mc/background.jpg", false),
-	MC_HUMAN("./images/mc/human.png", false),
-	MC_ZOMBIE("./images/mc/zombie.png", false),
-	MC_BOAT("./images/mc/boat.png", true);
+	MC_BACKGROUND("background.jpg", false),
+	MC_HUMAN("human.png", false),
+	MC_ZOMBIE("zombie.png", false),
+	MC_BOAT("boat.png", true);
 	
 	private ImageIcon _icon;
 	private ImageIcon _flippedIcon;
 	
 	private ImageType(final String url, final boolean flip)
 	{
-		_icon = new ImageIcon(url);
+		_icon = new ImageIcon(getClass().getResource(url));
 		
 		if (flip)
 		{
