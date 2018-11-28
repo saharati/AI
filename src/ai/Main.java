@@ -53,7 +53,7 @@ public final class Main
 		buttonsPanel.add(puzzle);
 		buttonsPanel.add(Box.createVerticalStrut(10));
 		final JButton horse = new JButton("Horse");
-		horse.addActionListener(e -> Horse.open());
+		horse.addActionListener(e -> new Horse());
 		horse.setAlignmentX(Component.CENTER_ALIGNMENT);
 		horse.setMaximumSize(new Dimension(Integer.MAX_VALUE, horse.getMinimumSize().height));
 		buttonsPanel.add(horse);
