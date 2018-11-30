@@ -27,6 +27,7 @@ public final class Jug
 	private static final Color POOL_COLOR = new Color(79, 183, 255);
 	
 	private final ScheduledThreadPoolExecutor threadPool = new ScheduledThreadPoolExecutor(1);
+	private final JLabel arrow = new JLabel();
 	private final JLabel jug1Data = new JLabel();
 	private final JLabel jug2Data = new JLabel();
 	private final JLabel poolData = new JLabel();
@@ -93,6 +94,7 @@ public final class Jug
 		poolData.setBounds(560, 180, 300, 150);
 		poolData.setFont(new Font("Arial", Font.BOLD, 25));
 		
+		backgroundPanel.add(arrow);
 		backgroundPanel.add(jug1Data);
 		backgroundPanel.add(jug2Data);
 		backgroundPanel.add(poolData);
@@ -168,14 +170,52 @@ public final class Jug
 	
 	private void task(final LinkedList<BaseState> states)
 	{
-		final State currentState = (State) states.get(index - 1);
-		jug1Data.setText(currentState.c[0] + " / " + State.m[0]);
-		jug2Data.setText(currentState.c[1] + " / " + State.m[1]);
-		poolData.setText(currentState.c[2] + " / " + State.m[2]);
-		backgroundPanel.repaint();
-		
 		if (index == states.size())
 			return;
+		
+		final State currentState = (State) states.get(index - 1);
+		final State nextState = (State) states.get(index);
+		if (nextState.c[0] != currentState.c[0])
+		{
+			if (nextState.c[0] > currentState.c[0])
+			{
+				if (nextState.c[1] < currentState.c[1])
+				{
+					arrow.setIcon(ImageType.JUG_ARROW.getFlippedIcon());
+					arrow.setBounds(158, 120, 120, 33);
+				}
+				else
+				{
+					arrow.setIcon(ImageType.JUG_BIGARROW.getFlippedIcon());
+					arrow.setBounds(158, 20, 400, 65);
+				}
+			}
+			else if (nextState.c[1] > currentState.c[1])
+			{
+				arrow.setIcon(ImageType.JUG_ARROW.getIcon());
+				arrow.setBounds(158, 120, 120, 33);
+			}
+			else
+			{
+				arrow.setIcon(ImageType.JUG_BIGARROW.getIcon());
+				arrow.setBounds(158, 20, 400, 65);
+			}
+		}
+		else if (nextState.c[1] > currentState.c[1])
+		{
+			arrow.setIcon(ImageType.JUG_ARROW.getFlippedIcon());
+			arrow.setBounds(405, 120, 120, 33);
+		}
+		else
+		{
+			arrow.setIcon(ImageType.JUG_ARROW.getIcon());
+			arrow.setBounds(405, 120, 120, 33);
+		}
+		
+		jug1Data.setText(nextState.c[0] + " / " + State.m[0]);
+		jug2Data.setText(nextState.c[1] + " / " + State.m[1]);
+		poolData.setText(nextState.c[2] + " / " + State.m[2]);
+		backgroundPanel.repaint();
 		
 		moveTask = threadPool.schedule(() ->
 		{

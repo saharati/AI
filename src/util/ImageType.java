@@ -13,7 +13,9 @@ public enum ImageType
 	MC_HUMAN("human.png", false),
 	MC_ZOMBIE("zombie.png", false),
 	MC_BOAT("boat.png", true),
-	JUG_BACKGROUND("jugbackground.jpg", false);
+	JUG_BACKGROUND("jugbackground.jpg", false),
+	JUG_ARROW("arrow.png", true),
+	JUG_BIGARROW("bigarrow.png", true);
 	
 	private ImageIcon _icon;
 	private ImageIcon _flippedIcon;
