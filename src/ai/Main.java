@@ -13,7 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import ai.horse.Horse;
 import ai.jug.Jug;
@@ -23,7 +26,9 @@ import ai.queens.Queens;
 
 public final class Main
 {
-	public static void main(final String[] args)
+	private final JTextArea log = new JTextArea();
+	
+	private Main()
 	{
 		final JFrame frame = new JFrame("AI - Sahar Atias");
 		final JPanel contentPanel = new JPanel();
@@ -31,10 +36,13 @@ public final class Main
 		frame.setContentPane(contentPanel);
 		frame.setLayout(new BorderLayout());
 		
+		final JPanel leftPane = new JPanel(new BorderLayout());
+		leftPane.setBackground(new Color(0x7B, 0xD9, 0xF1));
+		
 		final JLabel selectGame = new JLabel("Choose a Problem");
 		selectGame.setFont(new Font("Arial", Font.BOLD, 25));
 		selectGame.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.add(selectGame, BorderLayout.PAGE_START);
+		leftPane.add(selectGame, BorderLayout.PAGE_START);
 		
 		final JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.Y_AXIS));
@@ -70,13 +78,48 @@ public final class Main
 		queens.setMaximumSize(new Dimension(Integer.MAX_VALUE, queens.getMinimumSize().height));
 		buttonsPanel.add(queens);
 		buttonsPanel.setBackground(new Color(0x7B, 0xD9, 0xF1));
-		frame.add(buttonsPanel, BorderLayout.CENTER);
+		leftPane.add(buttonsPanel, BorderLayout.CENTER);
 		
+		final JPanel rightPane = new JPanel(new BorderLayout());
+		rightPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+		rightPane.setBackground(new Color(0x7B, 0xD9, 0xF1));
+		
+		final JScrollPane scrollPane = new JScrollPane(log);
+		scrollPane.setPreferredSize(new Dimension(350, log.getPreferredSize().height));
+		
+		log.setFont(new Font("Arial", Font.BOLD, 15));
+		log.setEditable(false);
+		log.setBorder(LineBorder.createBlackLineBorder());
+		log.append("Chat Log\r\n");
+		
+		rightPane.add(scrollPane, BorderLayout.CENTER);
+		
+		frame.add(leftPane, BorderLayout.WEST);
+		frame.add(rightPane, BorderLayout.CENTER);
 		frame.getContentPane().setBackground(new Color(0x7B, 0xD9, 0xF1));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+	}
+	
+	public JTextArea getLog()
+	{
+		return log;
+	}
+	
+	public static final Main getInstance()
+	{
+		return SingletonHolder.INSTANCE;
+	}
+	
+	private static class SingletonHolder
+	{
+		protected static final Main INSTANCE = new Main();
+	}
+	
+	public static void main(final String[] args)
+	{
+		getInstance();
 	}
 }

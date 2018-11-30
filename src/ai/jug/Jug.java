@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 
 import ai.Algorithms;
 import ai.BaseState;
+import ai.Main;
 import util.ImageType;
 
 public final class Jug
@@ -158,8 +159,11 @@ public final class Jug
 				result = result.parent();
 			}
 			
-			System.out.println("=== Solution (" + states.size() + " nodes) ===");
+			System.out.println("=== Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms) ===");
 			states.forEach(System.out::println);
+			
+			Main.getInstance().getLog().append("=== " + getClass().getSimpleName() + " Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms) ===\r\n");
+			states.forEach(s -> Main.getInstance().getLog().append(s + "\r\n"));
 			
 			title.setText("Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms)");
 			

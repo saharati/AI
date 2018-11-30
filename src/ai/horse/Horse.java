@@ -22,6 +22,7 @@ import javax.swing.SwingConstants;
 
 import ai.Algorithms;
 import ai.BaseState;
+import ai.Main;
 
 public final class Horse
 {
@@ -101,8 +102,11 @@ public final class Horse
 				result = result.parent();
 			}
 			
-			System.out.println("=== Solution (" + states.size() + " nodes) ===");
+			System.out.println("=== Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms) ===");
 			states.forEach(System.out::println);
+			
+			Main.getInstance().getLog().append("=== " + getClass().getSimpleName() + " Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms) ===\r\n");
+			states.forEach(s -> Main.getInstance().getLog().append(s + "\r\n"));
 			
 			title.setText("Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms)");
 			

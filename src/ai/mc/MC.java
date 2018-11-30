@@ -25,6 +25,7 @@ import javax.swing.JPanel;
 
 import ai.Algorithms;
 import ai.BaseState;
+import ai.Main;
 import util.ImageType;
 
 public final class MC
@@ -162,6 +163,9 @@ public final class MC
 			
 			System.out.println("=== Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms) ===");
 			states.forEach(System.out::println);
+			
+			Main.getInstance().getLog().append("=== " + getClass().getSimpleName() + " Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms) ===\r\n");
+			states.forEach(s -> Main.getInstance().getLog().append(s + "\r\n"));
 			
 			title.setText("Solution (" + states.size() + " nodes, " + (System.currentTimeMillis() - startTime) + "ms)");
 			
