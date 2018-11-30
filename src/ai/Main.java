@@ -16,13 +16,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
 import ai.horse.Horse;
 import ai.jug.Jug;
 import ai.mc.MC;
 import ai.puzzle.Puzzle;
 import ai.queens.Queens;
+import prs.PRS;
 
 public final class Main
 {
@@ -77,6 +77,12 @@ public final class Main
 		queens.setAlignmentX(Component.CENTER_ALIGNMENT);
 		queens.setMaximumSize(new Dimension(Integer.MAX_VALUE, queens.getMinimumSize().height));
 		buttonsPanel.add(queens);
+		buttonsPanel.add(Box.createVerticalStrut(10));
+		final JButton prs = new JButton("PRS");
+		prs.addActionListener(e -> new PRS());
+		prs.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prs.setMaximumSize(new Dimension(Integer.MAX_VALUE, queens.getMinimumSize().height));
+		buttonsPanel.add(prs);
 		buttonsPanel.setBackground(new Color(0x7B, 0xD9, 0xF1));
 		leftPane.add(buttonsPanel, BorderLayout.CENTER);
 		
@@ -87,9 +93,7 @@ public final class Main
 		final JScrollPane scrollPane = new JScrollPane(log);
 		scrollPane.setPreferredSize(new Dimension(350, log.getPreferredSize().height));
 		
-		log.setFont(new Font("Arial", Font.BOLD, 15));
 		log.setEditable(false);
-		log.setBorder(LineBorder.createBlackLineBorder());
 		log.append("Chat Log\r\n");
 		
 		rightPane.add(scrollPane, BorderLayout.CENTER);

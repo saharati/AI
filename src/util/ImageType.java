@@ -15,7 +15,14 @@ public enum ImageType
 	MC_BOAT("boat.png", true),
 	JUG_BACKGROUND("jugbackground.jpg", false),
 	JUG_ARROW("arrow.png", true),
-	JUG_BIGARROW("bigarrow.png", true);
+	JUG_BIGARROW("bigarrow.png", true),
+	PRS_EMPTY("empty.jpg", false),
+	PRS_PAPER("paper.jpg", false),
+	PRS_PAPERBUTTON("paperButton.jpg", false),
+	PRS_ROCK("rock.jpg", false),
+	PRS_ROCKBUTTON("rockButton.jpg", false),
+	PRS_SCISSORS("scissors.jpg", false),
+	PRS_SCISSORSBUTTON("scissorsButton.jpg", false);
 	
 	private ImageIcon _icon;
 	private ImageIcon _flippedIcon;
